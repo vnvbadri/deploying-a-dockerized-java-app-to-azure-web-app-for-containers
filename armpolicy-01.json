@@ -21,6 +21,14 @@
                    "like": "microsoft.insights/components/*"
                    },
                    {
+                    "field": "type",
+                    "like": "Microsoft.Authorization/roleAssignments"
+                   },    
+                   {
+                    "field": "type",
+                    "like": "Microsoft.Resources/deployments"
+                   },                                  
+                   {
                    "field": "type",
                    "like": "Microsoft.Web/serverFarms/*"
                    },
@@ -30,7 +38,7 @@
                    },
                    {
                    "field": "type",
-                   "in": ["Microsoft.ContainerRegistry/registries", "Microsoft.DBforMySQL/servers", "microsoft.insights/alertrules", "microsoft.insights/components", "Microsoft.Web/serverFarms", "Microsoft.Web/sites"]
+                   "in": ["Microsoft.ContainerRegistry/registries", "Microsoft.Resources/deployments", "Microsoft.Authorization/roleAssignments", "Microsoft.DBforMySQL/servers", "microsoft.insights/alertrules", "microsoft.insights/components", "Microsoft.Web/serverFarms", "Microsoft.Web/sites"]
                    }
                ]
            }
