@@ -4,13 +4,11 @@
     "IsCustom":  true,
     "Description":  "Spektra Training Custom Role.",
     "Actions":  [
-                    "Microsoft.Authorization/*/write",
+                    "Microsoft.Authorization/*/read",
                     "Microsoft.ContainerRegistry/registries/*",
                     "Microsoft.DBforMySQL/servers/*",
-                    "Microsoft.Authorization/roleAssignments/write",
-                    "Microsoft.Resources/subscriptions/resourceGroups/write",
-                    "microsoft.insights/alertrules/*",
-                    "microsoft.insights/components/*",
+                    "Microsoft.Authorization/roleAssignments/read",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
                     "Microsoft.Resources/deployments/*",
                     "Microsoft.Web/serverFarms/*",
                     "Microsoft.Web/sites/*"

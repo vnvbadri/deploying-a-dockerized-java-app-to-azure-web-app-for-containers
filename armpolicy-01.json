@@ -13,21 +13,9 @@
                    "like": "Microsoft.DBforMySQL/servers/*"
                    },
                    {
-                   "field": "type",
-                   "like": "microsoft.insights/alertrules/*"
-                   },
-                   {
-                   "field": "type",
-                   "like": "microsoft.insights/components/*"
-                   },
-                   {
                     "field": "type",
                     "like": "Microsoft.Authorization/roleAssignments"
-                   },
-                   {
-                    "field": "type",
-                    "like": "Microsoft.Authorization/roleAssignments/write"
-                   },                       
+                   },                      
                    {
                     "field": "type",
                     "like": "Microsoft.Resources/deployments"
