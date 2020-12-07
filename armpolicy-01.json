@@ -30,7 +30,7 @@
                    },
                    {
                    "field": "type",
-                   "in": ["Microsoft.ContainerRegistry/registries", "Microsoft.Authorization/roleAssignments/write", "Microsoft.Resources/deployments", "Microsoft.Authorization/roleAssignments", "Microsoft.DBforMySQL/servers", "microsoft.insights/alertrules", "microsoft.insights/components", "Microsoft.Web/serverFarms", "Microsoft.Web/sites"]
+                   "in": ["Microsoft.ContainerRegistry/registries", "Microsoft.Resources/deployments", "Microsoft.Authorization/roleAssignments", "Microsoft.DBforMySQL/servers", "Microsoft.Web/serverFarms", "Microsoft.Web/sites"]
                    }
                ]
            }
@@ -58,10 +58,41 @@
                "field": "Microsoft.Web/serverfarms/sku.name",
                "in": ["P1v2"]
                }
-             }
+            }            
            ]
-         }
-
+         },
+         {
+          "allof": [
+            {
+              "field": "type",
+              "equals": "Microsoft.DBforMySQL/servers"
+            },
+            {
+              "not": {
+                "field": "Microsoft.DBforMySQL/servers/sku.name",
+                "in": [ "B_Gen5_2" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.DBforMySQL/servers/sku.tier",
+                "in": [ "Basic" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.DBforMySQL/servers/sku.family",
+                "in": [ "Gen5" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.DBforMySQL/servers/sku.capacity",
+                "in": [ "2" ]
+            }
+          }
+        ]
+      }                 
      ]
    },
    "then": {
