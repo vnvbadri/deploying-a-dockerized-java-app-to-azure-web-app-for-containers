@@ -7,7 +7,7 @@
                     "Microsoft.Authorization/*/read",
                     "Microsoft.ContainerRegistry/registries/*",
                     "Microsoft.DBforMySQL/servers/*",
-                    "Microsoft.Authorization/roleAssignments/read",
+                    "Microsoft.Authorization/roleAssignments/write",
                     "Microsoft.Resources/subscriptions/resourceGroups/read",
                     "Microsoft.Resources/deployments/*",
                     "Microsoft.Web/serverFarms/*",
