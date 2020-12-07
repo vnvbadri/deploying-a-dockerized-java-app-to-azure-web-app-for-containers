@@ -87,6 +87,12 @@
             },
             {
               "not": {
+                "field": "Microsoft.DBforMySQL/servers/sku.size",
+                "in": [ "5120" ]
+              }
+            },            
+            {
+              "not": {
                 "field": "Microsoft.DBforMySQL/servers/sku.capacity",
                 "in": [ "2" ]
               }
