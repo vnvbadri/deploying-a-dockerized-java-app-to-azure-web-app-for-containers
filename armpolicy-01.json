@@ -1,9 +1,9 @@
 {
-    "if": {
-       "anyOf": [
-        {
-           "not": {
-             "anyOf": [
+  "if": {
+    "anyOf": [
+      {
+        "not": {
+          "anyOf": [
                    {
                    "field": "type",
                    "like": "Microsoft.ContainerRegistry/registries/*"
@@ -32,76 +32,75 @@
                    "field": "type",
                    "in": ["Microsoft.ContainerRegistry/registries", "Microsoft.Resources/deployments", "Microsoft.Authorization/roleAssignments", "Microsoft.DBforMySQL/servers", "Microsoft.Web/serverFarms", "Microsoft.Web/sites"]
                    }
-               ]
-           }
-        },
-         {
-         "allof": [
-           {
-             "field": "type",
-             "equals": "Microsoft.ContainerRegistry/registries"
-           },
-           {
-           "field": "Microsoft.ContainerRegistry/registries/sku.name",
-           "notIn": ["Standard"]
-           }
-           ]
-         },
-         {
-         "allof": [
-           {
-             "field": "type",
-             "equals": "Microsoft.Web/serverfarms"
-           },
-           {
-             "not": {
-               "field": "Microsoft.Web/serverfarms/sku.name",
-               "in": ["P1v2"]
-               }
-            }            
-           ]
-         },
-         {
-          "allof": [
-            {
-              "field": "type",
-              "equals": "Microsoft.DBforMySQL/servers"
-            },
-            {
-              "not": {
-                "field": "Microsoft.DBforMySQL/servers/sku.name",
-                "in": [ "B_Gen5_2" ]
-              }
-            },
-            {
-              "not": {
-                "field": "Microsoft.DBforMySQL/servers/sku.tier",
-                "in": [ "Basic" ]
-              }
-            },
-            {
-              "not": {
-                "field": "Microsoft.DBforMySQL/servers/sku.family",
-                "in": [ "Gen5" ]
-              }
-            },
-            {
-              "not": {
-                "field": "Microsoft.DBforMySQL/servers/sku.size",
-                "in": [ "5120" ]
-              }
-            },            
-            {
-              "not": {
-                "field": "Microsoft.DBforMySQL/servers/sku.capacity",
-                "in": [ "2" ]
-              }
-            }
           ]
-        }                 
-      ]
-   },
-   "then": {
-     "effect": "deny"
-   }
+        }
+      },
+      {
+        "allof": [
+          {
+            "field": "type",
+            "equals": "Microsoft.ContainerRegistry/registries"
+          },
+          {
+            "not": {
+              "field": "Microsoft.ContainerRegistry/registries/sku.name",
+              "in": [ "Standard" ]
+            }
+          }
+        ]
+      },
+      {
+        "allof": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Web/serverfarms"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Web/serverfarms/sku.name",
+              "in": [ "P1v2" ]
+            }
+          }
+        ]
+      },      
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.DBforMySQL/servers"
+          },
+          {
+            "not": {
+              "allOf": [
+                {
+                  "field": "Microsoft.DBforMySQL/servers/sku.name",
+                  "in": [ "B_Gen5_2" ]
+                },
+                {
+                  "field": "Microsoft.DBforMySQL/servers/sku.tier",
+                  "in": [ "Basic" ]
+                },
+                {
+                  "field": "Microsoft.DBforMySQL/servers/sku.family",
+                  "in": [ "Gen5" ]
+                }, 
+                {
+                  "field": "Microsoft.DBforMySQL/servers/sku.size",
+                  "in": [ "5120" ]
+                },
+                {
+                  "field": "Microsoft.DBforMySQL/servers/sku.capacity",
+                  "in": [ "2" ]
+                }                
+              ]
+            }
+          }
+        ]
+      }
+
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
 }
